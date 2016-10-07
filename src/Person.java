@@ -1,14 +1,5 @@
-/**
- * Stores the information about each person.
- */
-public class Person {
 
-    Integer id;
-    String firstName;
-    String lastName;
-    String email;
-    String country;
-    String ipAddress;
+public class Person implements Comparable<Person> {
 
     public Person(Integer id, String firstName, String lastName, String email, String country, String ipAddress) {
         this.id = id;
@@ -19,7 +10,16 @@ public class Person {
         this.ipAddress = ipAddress;
     }
 
+    Integer id;
+    String firstName;
+    String lastName;
+    String email;
+    String country;
+    String ipAddress;
 
-
-
+    @Override
+    public int compareTo(Person o) {
+        if(! this.lastName.equals(o.lastName)) return this.lastName.compareTo( o.lastName );
+        else return this.firstName.compareTo( o.firstName );
+    }
 }
